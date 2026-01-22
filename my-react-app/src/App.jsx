@@ -1,12 +1,72 @@
 function App() {
+
   return (
     <div>
       <h1>5°A EVND</h1>
       <h2>Alumna:</h2>
       <h3>Maria Guadalupe Clemente Tellez</h3>
-      <h4>UTXJ</h4>
+      <UserComponent/>
+      <ProfileComponent/>
+      <FeedComponent/>
     </div>
   )
 }
 
+function UserComponent() {
+  const nombre = 'Maria Guadalupe';
+  const apellidos = 'Clemente Tellez';
+  const nombreCompleto = <h2>El nombre es: {nombre} y sus apellidos {apellidos}</h2>;
+  return <h2>User Component {nombreCompleto}</h2>;
+}
+
+function ProfileComponent() {
+    const users = [
+    { id: 1, name:'Maria', role: 'Web Developer'},
+    { id: 2, name:'Karen', role: 'Web Designer'},
+    { id: 3, name:'Sheila', role: 'Team Leader'},
+  ]
+
+  return (
+    <>
+    <p>Lista de usuarios del sistema</p>
+    <ul>
+      {
+      users.map(function(user,index){
+        return (
+          <li key={index}>{user.name} es un {user.role}</li>
+
+        )
+      })
+      }
+    </ul>
+    </>
+  )
+}
+
+function FeedComponent() {
+      const users = [
+    { id: 1, name:'Piedra'},
+    { id: 2, name:'Arena'},
+    { id: 3, name:'Grava'},
+    { id: 4, name:'Ladrillos'},
+    { id: 5, name:'Cemento'},
+  ]
+
+  return (
+    <>
+      <h1 className="text-lowercase">Feed Component</h1>
+       <p>Lista de materiales para una construcción</p>
+      <ul>
+        {
+          users.map(function(user, index){
+            return <li key={index}>{user.name}</li>
+          })
+        }
+      </ul>
+    </>
+  )
+}
+
+
 export default App
+
