@@ -12,7 +12,6 @@ function Encabezado() {
             <Logo/>
             <Menu/>
             <Redes/>
-            <h2>Bienvenido a mi Sitio</h2>
         </div>
 
     );
@@ -21,7 +20,7 @@ function Encabezado() {
 
 function Logo(){
     return (
-        <div className="Logo img">
+        <div className="logoDiv">
             <img src={miLogo} alt="React Logo" />
         </div>
     )
@@ -29,13 +28,14 @@ function Logo(){
 
 function Menu() {
     return (
-        <nav>
+        <nav className="menuDiv">
+    
             <ul>
-                <li>Inicio</li>
-                <li>Acerca de</li>
-                <li>Productos</li>
-                <li>Contacto</li>
-                <li>Sucursales</li>
+                <li><a href='#'>Inicio</a></li>
+                <li><a href='#'>Acerca de</a></li>
+                <li><a href='#'>Productos</a></li>
+                <li><a href='#'>Contacto</a></li>
+                <li><a href='#'>Sucursales</a></li>
             </ul>
         </nav>
     );
@@ -43,13 +43,12 @@ function Menu() {
 
 function Redes() {
     return (
-        <div>
-            <h3>Redes Sociales</h3>
+        <div className="redesDiv">
             <ul>
-                    <li><img src={facebookImg} alt="Facebook" width="50" /></li>
-                    <li><img src={instagramImg} alt="Instagram" width="50" /></li>
-                    <li><img src={tiktokImg} alt="TikTok" width="50"/></li>
-                    <li><img src={whatsappImg} alt="WhatsApp" width="50" /></li>
+                    <li><a href='#'><img src={facebookImg} alt="Facebook" width="50" /></a></li>
+                    <li><a href='#'><img src={instagramImg} alt="Instagram" width="50" /></a></li>
+                    <li><a href='#'><img src={tiktokImg} alt="TikTok" width="50"/></a></li>
+                    <li><a href='#'><img src={whatsappImg} alt="WhatsApp" width="50" /></a></li>
             </ul>
         </div>
     );
