@@ -1,17 +1,18 @@
 import ContenedorTarjeta from "./ContenedorTarjeta";
 import Encabezado from "./Encabezado";
-import miLogo from "./assets/logo.png";
 import PromosContenido from "./PromosContenido";
-import PiePagina from "./PieComponente";
-
+import PieComponente from "./PieComponente";
+import PropTypes from 'prop-types';
+import {useState} from "react";
 
 function App() {
+  const [vista, setVista] = useState("Inicio");
   return (
     <div>
-      <Encabezado/>
-      <ContenedorTarjeta/>
+      <Encabezado cambiarVista={setVista}/>
+      <ContenedorTarjeta vista = {vista}/>
       <PromosContenido/>
-      <PiePagina/>
+      <PieComponente/>
     </div>
   )
 }
@@ -71,6 +72,9 @@ function FeedComponent() {
   )
 }
 
+App.propTypes = {
+  vista: PropTypes.string.isRequired
+};
 
 export default App
 
