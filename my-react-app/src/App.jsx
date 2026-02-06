@@ -1,20 +1,17 @@
 import ContenedorTarjeta from "./ContenedorTarjeta";
 import Encabezado from "./Encabezado";
 import miLogo from "./assets/logo365.png";
-
+import PromosContenido from "./PromosContenido";
+import PiePagina from "./PieComponente";
 
 
 function App() {
-
   return (
     <div>
       <Encabezado/>
       <ContenedorTarjeta/>
-      <h1>5°A EVND</h1>
-      <h2>Alumna:</h2>
-      <h3>Maria Guadalupe Clemente Tellez</h3>
-      <UserComponent/>
-      <ProfileComponent/>
+      <PromosContenido/>
+      <PiePagina/>
     </div>
   )
 }

@@ -1,25 +1,27 @@
 import './ContenedorTarjeta.css';
-import tarjeta1 from './assets/tarjetas/tarjeta1.jpg';
-import tarjeta2 from './assets/tarjetas/tarjeta2.jpg';
+import imagen1 from './assets/tarjetas/tarjeta1.jpg';
+import imagen2 from './assets/tarjetas/tarjeta2.jpg';
 
 function ContenedorTarjeta() {
     return (
-        <div className="contenedor-tarjeta">
-            <Tarjeta titulo="Tarjeta 1" descripcion="Este es un paisaje........." imagen={tarjeta1} />
-            <Tarjeta titulo="Tarjeta 2" descripcion="Este es un paisaje........." imagen={tarjeta2} />
-            <Tarjeta titulo="Tarjeta 3" descripcion="Este es un paisaje........." imagen={tarjeta1} />
+        <div className="contenedorDiv">
+            <TarjetaComponent titulo="Java" descripcion="Lenguaje de programación orientado a objetos" imagen={imagen1} />
+            <TarjetaComponent titulo="Python" descripcion="Lenguaje de programación interpretado" imagen={imagen2} />
+            <TarjetaComponent titulo="JavaScript" descripcion="Lenguaje de programación para el desarrollo web"/>
+            <TarjetaComponent titulo="PHP" descripcion="Lenguaje de programación para el desarrollo web"/>
         </div>
     );
 }
 
-function Tarjeta({ titulo, descripcion, imagen }) {
+function TarjetaComponent(props) {
     return (
-        <div className="tarjeta">
-            <img src={imagen} alt={titulo} />
-            <h3>{titulo}</h3>
-            <p>{descripcion}</p>
-            <a href="#" className="ver-mas">Ver más</a>
+        <div className='tarjetaDiv'>
+            <img src={props.imagen} alt="Logotipo" />
+            <h3>{props.titulo}</h3>
+            <p>{props.descripcion}</p>
+            <a href="#">Ver más</a>
         </div>
     );
 }
+
 export default ContenedorTarjeta;
