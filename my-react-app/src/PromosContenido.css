@@ -1,5 +1,5 @@
-.promosContenido{
-    background-image: linear-gradient(rgba(3,18,26,0.45), rgba(3,18,26,0.25)), url('./assets/tarjetas/fondo.jpg');
+.promosContenido {
+    background-image: linear-gradient(rgba(3,18,26,0.45), rgba(3,18,26,0.25)), url('./assets/ropa/promociones.jpeg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -16,7 +16,7 @@
     padding: 28px 18px;
 }
 
-.promosContenido h2{
+.promosContenido h2 {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     text-align: center;
     margin-top: 20px;
@@ -24,10 +24,10 @@
     color: #fff;
 }
 
-.promosContenido p{
+.promosContenido p {
     color: #e6f7ff;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     padding: 8px 12px;
     max-width: 820px;
-    text-align:center;
+    text-align: center;
 }

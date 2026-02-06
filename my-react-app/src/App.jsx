@@ -1,6 +1,6 @@
 import ContenedorTarjeta from "./ContenedorTarjeta";
 import Encabezado from "./Encabezado";
-import miLogo from "./assets/logo365.png";
+import miLogo from "./assets/logo.png";
 import PromosContenido from "./PromosContenido";
 import PiePagina from "./PieComponente";
 

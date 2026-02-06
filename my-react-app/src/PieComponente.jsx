@@ -11,7 +11,7 @@ function PieComponente() {
       </div>
 
       <div className="pieDerDiv">
-        <h4>Enlaces</h4>
+        <h4>Informes:</h4>
         <p>Maria Guadalupe Clemente Tellez</p>
         </div>
       </div>

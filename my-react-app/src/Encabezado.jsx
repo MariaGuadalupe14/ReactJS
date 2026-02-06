@@ -1,4 +1,4 @@
-import miLogo from './assets/logo365.png';
+import miLogo from './assets/logo.png';
 import facebookImg from './assets/redes/facebook.png';
 import instagramImg from './assets/redes/instagram.png';
 import tiktokImg from './assets/redes/tik-tok.png';

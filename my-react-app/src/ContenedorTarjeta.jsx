@@ -1,17 +1,36 @@
 import './ContenedorTarjeta.css';
-import imagen1 from './assets/tarjetas/tarjeta1.jpg';
-import imagen2 from './assets/tarjetas/tarjeta2.jpg';
+import imagen1 from './assets/ropa/camisa.jpg';
+import imagen2 from './assets/ropa/jeans.jpg';
+import imagen3 from './assets/ropa/chaqueta.jpeg';
+import imagen4 from './assets/ropa/vestido.jpeg';
+
 
 function ContenedorTarjeta() {
     return (
         <div className="contenedorDiv">
-            <TarjetaComponent titulo="Java" descripcion="Lenguaje de programación orientado a objetos" imagen={imagen1} />
-            <TarjetaComponent titulo="Python" descripcion="Lenguaje de programación interpretado" imagen={imagen2} />
-            <TarjetaComponent titulo="JavaScript" descripcion="Lenguaje de programación para el desarrollo web"/>
-            <TarjetaComponent titulo="PHP" descripcion="Lenguaje de programación para el desarrollo web"/>
+            <TarjetaComponent 
+              titulo="Camisa Casual" 
+              descripcion="Cómoda y elegante para el día a día." 
+              imagen={imagen1} 
+            />
+            <TarjetaComponent 
+              titulo="Pantalones Jeans" 
+              descripcion="Clásicos y resistentes para cualquier ocasión." 
+              imagen={imagen2} 
+            />
+            <TarjetaComponent 
+              titulo="Chaqueta de Cuero" 
+              descripcion="Estilo y protección para los días frescos." 
+              imagen={imagen3} 
+            />
+            <TarjetaComponent titulo="Vestido" 
+              descripcion="Ligero y colorido para eventos." 
+              imagen={imagen4} 
+            />
         </div>
     );
 }
+
 
 function TarjetaComponent(props) {
     return (

@@ -1,17 +1,17 @@
-.pieDiv{
-  background-color : black;
+.pieDiv {
+  background-color: black;
   width: 100%;
   display: flex;
 }
 
-.pieIzqDiv{
-color: white;
+.pieIzqDiv {
+  color: white;
   width: 50%;
   text-align: left;
   padding-left: 20px;
 }
 
-.pieDerDiv{
+.pieDerDiv {
   color: white;
   width: 50%;
   text-align: right;
