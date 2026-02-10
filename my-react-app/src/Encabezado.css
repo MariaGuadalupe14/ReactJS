@@ -43,13 +43,23 @@ h2 {
 }
 
 .menuDiv ul li {
-    cursor: pointer;
-    padding: 10px 15px;
     border-radius: 8px;
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.menuDiv ul li:hover {
+.menuDiv ul li button {
+    cursor: pointer;
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    background: transparent;
+    border: 0;
+    color: inherit;
+    font: inherit;
+}
+
+.menuDiv ul li:hover,
+.menuDiv ul li button:hover {
     background-color: rgba(255, 255, 255, 0.25);
     transform: translateY(-2px);
 }

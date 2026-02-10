@@ -1,0 +1,30 @@
+.contacto {
+  padding: 40px;
+  max-width: 600px;
+  margin: auto;
+}
+
+.form-contacto {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form-contacto input,
+.form-contacto textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+.form-contacto button {
+  background: #ff4081;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.info-contacto {
+  margin-top: 20px;
+  color: #555;
+}

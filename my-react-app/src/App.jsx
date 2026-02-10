@@ -2,16 +2,16 @@ import ContenedorTarjeta from "./ContenedorTarjeta";
 import Encabezado from "./Encabezado";
 import PromosContenido from "./PromosContenido";
 import PieComponente from "./PieComponente";
-import PropTypes from 'prop-types';
-import {useState} from "react";
+import { useState } from "react";
 
 function App() {
   const [vista, setVista] = useState("Inicio");
+  const esInicio = vista === "Inicio";
   return (
     <div>
       <Encabezado cambiarVista={setVista}/>
       <ContenedorTarjeta vista = {vista}/>
-      <PromosContenido/>
+      {esInicio && <PromosContenido/>}
       <PieComponente/>
     </div>
   )
@@ -55,7 +55,7 @@ function FeedComponent() {
     { id: 3, name:'Grava'},
     { id: 4, name:'Ladrillos'},
     { id: 5, name:'Cemento'},
-  ]
+    ]
 
   return (
     <>
@@ -71,10 +71,6 @@ function FeedComponent() {
     </>
   )
 }
-
-App.propTypes = {
-  vista: PropTypes.string.isRequired
-};
 
 export default App
 

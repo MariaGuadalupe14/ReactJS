@@ -12,6 +12,12 @@
     overflow-x: auto; 
 }
 
+.contenedorDiv--pagina {
+    display: block;
+    max-width: 100%;
+    overflow-x: visible;
+}
+
 .tarjetaDiv {
     background-color: #6c5b7b; 
     color: #ffffff;

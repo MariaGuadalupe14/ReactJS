@@ -1,0 +1,18 @@
+.sucursales {
+  padding: 40px;
+}
+
+.lista-sucursales {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.sucursal {
+  width: 250px;
+}
+
+.sucursal img {
+  width: 100%;
+  border-radius: 6px;
+}
