@@ -1,22 +1,16 @@
-import './Contacto.css';
+import "./Contacto.css";
 
 function Contacto() {
   return (
     <section className="contacto">
-      <h2>Contáctanos</h2>
+      <h2>Contactanos</h2>
 
       <form className="form-contacto">
         <input type="text" placeholder="Nombre" />
-        <input type="email" placeholder="Correo electrónico" />
+        <input type="email" placeholder="Correo electronico" />
         <textarea placeholder="Mensaje"></textarea>
         <button>Enviar mensaje</button>
       </form>
-
-      <div className="info-contacto">
-        <p>📍 Ciudad de México</p>
-        <p>📞 55 1234 5678</p>
-        <p>✉ contacto@mitienda.com</p>
-      </div>
     </section>
   );
 }

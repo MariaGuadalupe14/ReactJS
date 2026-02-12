@@ -1,5 +1,6 @@
 .pieDiv {
-  background-color: black;
+  background-color: #0f1722;
+  border-top: 1px solid #2c3b4f;
   width: 100%;
   display: flex;
 }

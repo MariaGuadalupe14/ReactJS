@@ -1,15 +1,9 @@
-h1 {
-    color: rgb(2, 137, 155);
-}
-
-h2 {
-    color: rgb(85, 2, 153);
-}
-
 .Encabezado {
-    background-color: rgb(73, 80, 105);
+    background-color: #0f1722;
+    border-bottom: 1px solid #2c3b4f;
     width: 100%;
     display: flex;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
 }
 
 .logoDiv {
@@ -21,6 +15,7 @@ h2 {
 
 .logoDiv img {
     width: 200px;
+    filter: brightness(1.08) contrast(1.04);
 }
 
 .menuDiv {
@@ -39,12 +34,15 @@ h2 {
     font-weight: bold;
     padding: 20px;
     justify-content: center;
-    color: white;
+    color: #f3efe8;
 }
 
 .menuDiv ul li {
     border-radius: 8px;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    border: none;
+    padding: 10px 14px;
+    transition: all 0.25s ease;
+    cursor: pointer;
 }
 
 .menuDiv ul li button {
@@ -60,7 +58,8 @@ h2 {
 
 .menuDiv ul li:hover,
 .menuDiv ul li button:hover {
-    background-color: rgba(255, 255, 255, 0.25);
+    background-color: #ffffff;
+    color: #0f1722;
     transform: translateY(-2px);
 }
 
@@ -76,8 +75,34 @@ h2 {
     list-style: none;
     text-decoration: none;
     display: flex;
+    gap: 16px;
+    margin: 0;
+    padding: 0;
+}
+
+.redesDiv ul li {
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    width: auto;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.redesDiv ul li:hover {
+    transform: translateY(-2px);
 }
 
 .redesDiv img {
-    width: 32px;
+    width: 30px;
+    filter: brightness(1.1) contrast(1.05);
+    transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.redesDiv img:hover {
+    transform: scale(1.05);
+    filter: brightness(1.3);
 }

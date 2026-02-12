@@ -1,86 +1,120 @@
 .acercaDeDiv {
-  padding: 72px 16px;
+  padding: 72px 20px;
   max-width: 1100px;
   margin: 0 auto;
-  color: #121417;
+  color: #1a2636;
 }
 
 .acercaDeHero {
   text-align: left;
-  margin-bottom: 40px;
+  margin-bottom: 34px;
+  background: linear-gradient(120deg, #ffffff 0%, #f6f9fd 100%);
+  border: 1px solid #d6dfeb;
+  border-radius: 18px;
+  box-shadow: 0 14px 30px rgba(24, 34, 49, 0.12);
+  padding: 26px 24px;
+  position: relative;
+}
+
+.acercaDeHero::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 20px;
+  bottom: 20px;
+  width: 4px;
+  border-radius: 4px;
+  background: linear-gradient(180deg, #c9a86a 0%, #8aa2be 100%);
 }
 
 .acercaDeEtiqueta {
   display: inline-block;
-  font-size: 12px;
+  font-size: 11px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   font-weight: 700;
-  color: #4a5665;
+  color: #c9a86a;
   margin-bottom: 12px;
+  background: #fff7e8;
+  border: 1px solid #efdcb0;
+  border-radius: 999px;
+  padding: 6px 12px;
 }
 
 .acercaDeDiv h2 {
-  font-size: 40px;
-  margin: 0 0 12px;
-  color: #0b0f14;
+  font-size: 42px;
+  margin: 0 0 10px;
+  color: #1a2636;
+  letter-spacing: 0.01em;
 }
 
 .acercaDeLead {
-  font-size: 18px;
-  line-height: 1.6;
-  color: #374151;
-  max-width: 720px;
+  font-size: 19px;
+  line-height: 1.65;
+  color: #4e5e72;
+  max-width: 760px;
+  margin: 0;
 }
 
 .acercaDeGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 20px;
+  gap: 22px;
   margin-top: 28px;
 }
 
 .acercaDeGrid.secundaria {
-  margin-top: 32px;
+  margin-top: 22px;
 }
 
 .acercaDeCard {
-  background: #ffffff;
-  border: 1px solid #e7eaef;
+  background: linear-gradient(160deg, #ffffff 0%, #f7fafd 100%);
+  border: 1px solid #d3dcea;
   border-radius: 16px;
-  padding: 22px;
-  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+  padding: 22px 20px;
+  box-shadow: 0 10px 24px rgba(24, 34, 49, 0.09);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.acercaDeCard:hover {
+  transform: translateY(-6px);
+  border-color: #c9a86a;
+  box-shadow: 0 16px 28px rgba(24, 34, 49, 0.15);
 }
 
 .acercaDeCard h3 {
-  margin: 0 0 10px;
-  font-size: 20px;
-  color: #111827;
+  margin: 0 0 12px;
+  font-size: 21px;
+  color: #1a2636;
+  position: relative;
+  padding-bottom: 8px;
+}
+
+.acercaDeCard h3::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 42px;
+  height: 2px;
+  border-radius: 2px;
+  background: #c9a86a;
 }
 
 .acercaDeCard p {
   margin: 0;
-  color: #4b5563;
+  color: #4f6074;
   line-height: 1.6;
 }
 
 .acercaDeCard ul {
   margin: 0;
-  padding-left: 18px;
-  color: #4b5563;
-  line-height: 1.6;
+  padding-left: 20px;
+  color: #4f6074;
+  line-height: 1.7;
 }
 
 .acercaDeCard li {
   margin-bottom: 6px;
 }
 
-@media (max-width: 640px) {
-  .acercaDeDiv {
-    padding: 56px 16px;
-  }
-
-  .acercaDeDiv h2 {
-    font-size: 32px;
-  }
-}

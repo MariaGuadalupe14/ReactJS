@@ -1,6 +1,26 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
-  font-family: 'Segoe UI', system-ui, sans-serif;
-  background-color: var(--color-secundario);
-  color: var(--texto-oscuro);
+  font-family: "Georgia", "Times New Roman", serif;
+  background:
+    radial-gradient(900px 360px at 10% -12%, rgba(201, 168, 106, 0.18), transparent 60%),
+    radial-gradient(1200px 500px at 92% -16%, rgba(85, 113, 145, 0.16), transparent 58%),
+    linear-gradient(180deg, #f4f1ea 0%, #e9eef5 100%);
+  color: #182231;
+  min-height: 100vh;
+}
+
+h1,
+h2,
+h3 {
+  letter-spacing: 0.03em;
+}
+
+a {
+  color: inherit;
 }
