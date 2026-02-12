@@ -8,6 +8,7 @@ function Contacto() {
       <form className="form-contacto">
         <input type="text" placeholder="Nombre" />
         <input type="email" placeholder="Correo electronico" />
+        <input type="tel" placeholder="Telefono" />
         <textarea placeholder="Mensaje"></textarea>
         <button>Enviar mensaje</button>
       </form>
