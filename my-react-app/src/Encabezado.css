@@ -1,4 +1,4 @@
-.Encabezado {
+﻿.Encabezado {
     background-color: #0f1722;
     border-bottom: 1px solid #2c3b4f;
     width: 100%;
@@ -14,7 +14,8 @@
 }
 
 .logoDiv img {
-    width: 200px;
+    width: 140px;
+    max-width: 100%;
     filter: brightness(1.08) contrast(1.04);
 }
 
@@ -106,3 +107,4 @@
     transform: scale(1.05);
     filter: brightness(1.3);
 }
+

@@ -1,4 +1,4 @@
-.sucursales {
+﻿.sucursales {
   padding: 40px;
   max-width: 1100px;
   margin: 0 auto;
@@ -13,7 +13,7 @@
 }
 
 .sucursales h2::after {
-  content: "";
+  content: '';
   display: block;
   width: 68px;
   height: 3px;
@@ -24,7 +24,7 @@
 
 .lista-sucursales {
   display: grid;
-  grid-template-columns: repeat(2, minmax(260px, 1fr));
+  grid-template-columns: repeat(2, minmax(280px, 1fr));
   gap: 22px;
 }
 
@@ -43,26 +43,37 @@
   box-shadow: 0 16px 30px rgba(24, 34, 49, 0.16);
 }
 
-.sucursal img {
-  width: 100%;
-  height: 190px;
-  object-fit: cover;
-  border-radius: 10px;
-  filter: contrast(1.05);
-  box-shadow: 0 8px 18px rgba(24, 34, 49, 0.16);
-}
-
 .sucursal h3 {
-  margin: 12px 0 8px;
+  margin: 0 0 10px;
   color: #1a2636;
-  font-size: 21px;
+  font-size: 28px;
+  line-height: 1.1;
 }
 
-.sucursal p {
-  margin: 0;
-  color: #5d6b7d;
-  background: #f6f9fc;
-  border: 1px solid #d4deeb;
+.direccion {
+  margin: 0 0 12px;
+  color: #44566c;
+  background: #f4f8fc;
+  border: 1px solid #d2dceb;
   border-radius: 8px;
-  padding: 9px 12px;
+  padding: 10px 12px;
+  font-size: 14px;
+  line-height: 1.35;
+}
+
+.mapa-contenedor {
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid #d4deeb;
+  box-shadow: 0 8px 16px rgba(24, 34, 49, 0.12);
+}
+
+@media (max-width: 900px) {
+  .lista-sucursales {
+    grid-template-columns: 1fr;
+  }
+
+  .sucursal h3 {
+    font-size: 24px;
+  }
 }
