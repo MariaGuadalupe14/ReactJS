@@ -1,4 +1,5 @@
 import Mapa from './Mapa';
+import RutaMapa from './RutaMapa';
 import './Sucursales.css';
 
 const SUCURSALES = [
@@ -45,6 +46,7 @@ function Sucursales() {
           <TarjetaSucursal key={sucursal.nombre} {...sucursal} />
         ))}
       </div>
+      <RutaMapa sucursales={SUCURSALES} />
     </section>
   );
 }

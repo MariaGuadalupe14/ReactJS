@@ -3,6 +3,7 @@ import facebookImg from './assets/redes/facebook.png';
 import instagramImg from './assets/redes/instagram.png';
 import tiktokImg from './assets/redes/tik-tok.png';
 import whatsappImg from './assets/redes/whatsapp.png';
+import Clima from './Clima';
 import './Encabezado.css';
 import PropTypes from 'prop-types';
 
@@ -52,6 +53,7 @@ function Redes() {
                     <li><a href='#'><img src={tiktokImg} alt="TikTok" width="50"/></a></li>
                     <li><a href='#'><img src={whatsappImg} alt="WhatsApp" width="50" /></a></li>
             </ul>
+            <Clima/>
         </div>
     );
 }
