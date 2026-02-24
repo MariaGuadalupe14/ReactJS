@@ -2,6 +2,8 @@ import AcercaDe from './AcercaDe';
 import './ContenedorTarjeta.css';
 import './AcercaDe.jsx';
 import Productos from './Productos';
+import Usuarios from './Usuarios';
+import Carritos from './Carritos';
 import Contacto from './Contacto';
 import Sucursales from './Sucursales';
 import Galeria from './Galeria';
@@ -13,6 +15,8 @@ function ContenedorTarjeta({vista}) {
     "Inicio": <Inicio/>,
     "AcercaDe": <AcercaDe/>,
     "Productos": <Productos/>,
+    "Usuarios": <Usuarios/>,
+    "Carritos": <Carritos/>,
     "Contacto": <Contacto/>,
     "Sucursales": <Sucursales/>,
     "Galeria": <Galeria/>,
@@ -67,3 +71,4 @@ ContenedorTarjeta.propTypes = {
 };
 
 export default ContenedorTarjeta;
+

@@ -1,0 +1,53 @@
+.usuariosDiv {
+  padding: 20px;
+  background: #f8fafc;
+  border-radius: 12px;
+}
+
+.usuariosDiv table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+}
+
+.usuariosDiv th,
+.usuariosDiv td {
+  border: 1px solid #e5e7eb;
+  padding: 10px 12px;
+  text-align: left;
+  font-size: 14px;
+}
+
+.usuariosDiv th {
+  background: #eaf2ff;
+  color: #1e3a8a;
+  font-weight: 700;
+}
+
+.usuariosDiv tbody tr:nth-child(even) {
+  background: #f9fbff;
+}
+
+.usuariosDiv tbody tr:hover {
+  background: #eef4ff;
+}
+
+.usuariosDiv button {
+  border: none;
+  border-radius: 6px;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+.usuariosDiv button:first-child {
+  background: #2563eb;
+  color: #fff;
+}
+
+.usuariosDiv button:last-child {
+  background: #ef4444;
+  color: #fff;
+}
