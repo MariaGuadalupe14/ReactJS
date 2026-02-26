@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import api from './Services/api';
 import './Productos.css';
+import RegistrarProducto from './registrarProducto';
 
 function Productos() {
   const [productos, setProductos] = useState([]);
@@ -20,6 +21,10 @@ function Productos() {
     obtenerProductos();
   }, []);
 
+  const handleRegistrarProducto = (nuevoProducto) => {
+    setProductos((prevProductos) => [nuevoProducto, ...prevProductos]);
+  };
+
   if (cargando) {
     return <p>Cargando productos...</p>;
   }
@@ -27,6 +32,7 @@ function Productos() {
   return (
     <div className="productosDiv">
       <h1>Nuestros Productos</h1>
+      <RegistrarProducto onRegistrar={handleRegistrarProducto} />
       {productos.map((producto) => (
         <div key={producto.id}>
           <p>{producto.title}</p>
