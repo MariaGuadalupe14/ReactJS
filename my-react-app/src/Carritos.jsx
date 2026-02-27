@@ -36,10 +36,11 @@ function Carritos() {
               {carrito.products?.map((producto) => (
                 <li key={producto.productId}>
                   productId: {producto.productId} _ Cantidad: {producto.quantity}
+                  <button type="button" className="btnEliminarProducto">Eliminar</button>
                 </li>
               ))}
             </ul>
-            <button type="button">Comprar</button>
+            <button type="button" className="btnComprar">Comprar</button>
           </article>
         ))}
       </div>

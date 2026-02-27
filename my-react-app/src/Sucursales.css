@@ -1,10 +1,10 @@
-.sucursales {
+.classSuc {
   padding: 40px;
   max-width: 1100px;
   margin: 0 auto;
 }
 
-.sucursales h2 {
+.classSuc h2 {
   margin: 0 0 18px;
   font-size: 34px;
   color: #1a2636;
@@ -12,8 +12,8 @@
   position: relative;
 }
 
-.sucursales h2::after {
-  content: '';
+.classSuc h2::after {
+  content: "";
   display: block;
   width: 68px;
   height: 3px;
@@ -22,36 +22,37 @@
   background: #c9a86a;
 }
 
-.lista-sucursales {
+.classSedes {
   display: grid;
   grid-template-columns: repeat(2, minmax(280px, 1fr));
   gap: 22px;
 }
 
-.sucursal {
+.classSedes address {
   background: linear-gradient(150deg, #ffffff 0%, #f7fafd 100%);
   border: 1px solid #d2dceb;
   border-radius: 14px;
   padding: 14px;
   box-shadow: 0 12px 24px rgba(24, 34, 49, 0.11);
   transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  font-style: normal;
 }
 
-.sucursal:hover {
+.classSedes address:hover {
   transform: translateY(-5px);
   border-color: #c9a86a;
   box-shadow: 0 16px 30px rgba(24, 34, 49, 0.16);
 }
 
-.sucursal h3 {
+.classSedes h3 {
   margin: 0 0 10px;
   color: #1a2636;
   font-size: 28px;
   line-height: 1.1;
 }
 
-.direccion {
-  margin: 0 0 12px;
+.classSedes p {
+  margin: 0 0 10px;
   color: #44566c;
   background: #f4f8fc;
   border: 1px solid #d2dceb;
@@ -69,11 +70,11 @@
 }
 
 @media (max-width: 900px) {
-  .lista-sucursales {
+  .classSedes {
     grid-template-columns: 1fr;
   }
 
-  .sucursal h3 {
+  .classSedes h3 {
     font-size: 24px;
   }
 }
