@@ -1,8 +1,20 @@
 import { useEffect, useState } from "react";
 import api from "./Services/api";
 import './Productos.css';
+import RegistrarProducto from './registrarProducto';
 
-function Productos() {
+
+function Productos(){
+    return(
+        <div className="ContenedorUsuarios"> 
+        <RegistrarProducto />
+        <Producto />
+        </div>
+        
+    );
+}
+
+function Producto() {
     //https://fakestoreapi.com/docs npm install axios
 
     const [productos, setProductos] = useState([]);
@@ -29,7 +41,7 @@ function Productos() {
         <div>
             <main className='classMain'>
                 <header>
-                    <h1>Nuestro Catálogo Tecnológico</h1>
+                    <h1>Nuestro Catálogo</h1>
                 </header>
                 <section className='classSection'>
                     {productos.map((producto) => (
@@ -56,4 +68,4 @@ function Productos() {
     )
 }
 
-export default Productos
+export default Productos;
