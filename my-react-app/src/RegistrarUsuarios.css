@@ -20,9 +20,11 @@
 
 .divForm {
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
-    padding: 12px 12px 30px;
+    align-items: center;
+    padding: 18px 12px 30px;
+    width: 100%;
 }
 
 .formularioProductos {
@@ -33,6 +35,12 @@
     background: linear-gradient(160deg, #ffffff 0%, #f6fafe 100%);
     border: 1px solid #d2dceb;
     box-shadow: 0 14px 30px rgba(24, 34, 49, 0.13);
+
+    /* layout helpers */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    box-sizing: border-box;
 }
 
 .formularioProductos label {
@@ -48,6 +56,7 @@
 .formularioProductos textarea,
 .formularioProductos select {
     width: 100%;
+    display: block;
     padding: 11px 12px;
     border-radius: 10px;
     border: 1px solid #c6d4e5;
@@ -81,6 +90,18 @@
     cursor: pointer;
     transition: transform 0.2s ease, filter 0.2s ease, box-shadow 0.2s ease;
     box-shadow: 0 8px 16px rgba(27, 95, 157, 0.28);
+}
+
+@media (max-width: 480px) {
+    .formularioProductos {
+        padding: 16px;
+        border-radius: 12px;
+    }
+
+    .h1 {
+        font-size: 1.6rem;
+        margin-top: 12px;
+    }
 }
 
 .formularioProductos button:hover {

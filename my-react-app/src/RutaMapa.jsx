@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import { GoogleMap, Marker, Polyline, useJsApiLoader } from '@react-google-maps/api';
+import { GoogleMap, Polyline, useJsApiLoader } from '@react-google-maps/api';
+import AdvancedMarker from './AdvancedMarker';
 
 const containerStyle = {
   width: '100%',
@@ -13,6 +14,7 @@ function RutaMapa({ sucursales = [] }) {
     id: 'google-map-script',
     googleMapsApiKey:
       import.meta.env.VITE_GOOGLE_MAPS_API_KEY || import.meta.env.VITE_API_KEY,
+    libraries: ['marker'],
   });
 
   useEffect(() => {
@@ -24,7 +26,7 @@ function RutaMapa({ sucursales = [] }) {
         });
       },
       (error) => {
-        console.error('No se pudo obtener la ubicación:', error);
+        console.error('No se pudo obtener la ubicacion:', error);
       },
       { enableHighAccuracy: true }
     );
@@ -39,19 +41,25 @@ function RutaMapa({ sucursales = [] }) {
 
   if (loadError) return <div className="mapa-estado">Error al cargar el mapa de rutas</div>;
   if (!isLoaded) return <div className="mapa-estado">Cargando mapa de rutas...</div>;
-  if (!ubicacion) return <div className="mapa-estado">Obteniendo tu ubicación...</div>;
+  if (!ubicacion) return <div className="mapa-estado">Obteniendo tu ubicacion...</div>;
 
   return (
     <div className="mapa-rutas-contenedor">
-      <GoogleMap mapContainerStyle={containerStyle} center={ubicacion} zoom={14}>
-        <Marker position={ubicacion} title="Tu ubicación" />
+      <GoogleMap
+        mapContainerStyle={containerStyle}
+        center={ubicacion}
+        zoom={14}
+        options={{ mapId: import.meta.env.VITE_GOOGLE_MAP_ID || 'DEMO_MAP_ID' }}
+      >
+        <AdvancedMarker position={ubicacion} title="Tu ubicacion" />
 
         {sucursales.map((sucursal) => {
           const destino = { lat: sucursal.latitud, lng: sucursal.longitud };
+          const key = `${sucursal.nombre}-${sucursal.latitud}-${sucursal.longitud}`;
 
           return (
-            <div key={sucursal.nombre}>
-              <Marker position={destino} title={sucursal.nombre} />
+            <div key={key}>
+              <AdvancedMarker position={destino} title={sucursal.nombre} />
               <Polyline path={[ubicacion, destino]} options={lineOptions} />
             </div>
           );

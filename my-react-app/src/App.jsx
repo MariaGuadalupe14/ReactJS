@@ -10,7 +10,7 @@ function App() {
   return (
     <div>
       <Encabezado cambiarVista={setVista}/>
-      <ContenedorTarjeta vista = {vista}/>
+      <ContenedorTarjeta vista = {vista} cambiarVista={setVista} />
       {esInicio && <PromosContenido/>}
       <PieComponente/>
     </div>

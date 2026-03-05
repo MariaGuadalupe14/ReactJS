@@ -1,4 +1,5 @@
-import { useJsApiLoader, Marker, GoogleMap } from '@react-google-maps/api';
+import { useJsApiLoader, GoogleMap } from '@react-google-maps/api';
+import AdvancedMarker from './AdvancedMarker';
 
 const containerStyle = {
   width: '100%',
@@ -9,6 +10,7 @@ function Mapa({ lat, lng, nombre_sucursal }) {
   const { isLoaded, loadError } = useJsApiLoader({
     id: 'google-map-script',
     googleMapsApiKey: import.meta.env.VITE_GOOGLE_MAPS_API_KEY,
+    libraries: ['marker'],
   });
 
   if (loadError) return <div className="mapa-estado">Error al cargar el mapa</div>;
@@ -18,8 +20,13 @@ function Mapa({ lat, lng, nombre_sucursal }) {
 
   return (
     <div className="mapa-contenedor">
-      <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={16}>
-        <Marker position={center} title={nombre_sucursal} />
+      <GoogleMap
+        mapContainerStyle={containerStyle}
+        center={center}
+        zoom={16}
+        options={{ mapId: import.meta.env.VITE_GOOGLE_MAP_ID || 'DEMO_MAP_ID' }}
+      >
+        <AdvancedMarker position={center} title={nombre_sucursal} />
       </GoogleMap>
     </div>
   );
