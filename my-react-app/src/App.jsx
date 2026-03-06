@@ -3,14 +3,17 @@ import Encabezado from "./Encabezado";
 import PromosContenido from "./PromosContenido";
 import PieComponente from "./PieComponente";
 import { useState } from "react";
+import { AuthProvider } from "./AuthContext";
 
 function App() {
   const [vista, setVista] = useState("Inicio");
   const esInicio = vista === "Inicio";
   return (
     <div>
+      <AuthProvider>
       <Encabezado cambiarVista={setVista}/>
       <ContenedorTarjeta vista = {vista} cambiarVista={setVista} />
+      </AuthProvider>
       {esInicio && <PromosContenido/>}
       <PieComponente/>
     </div>

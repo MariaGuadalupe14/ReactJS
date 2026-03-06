@@ -6,6 +6,7 @@ import whatsappImg from './assets/redes/whatsapp.png';
 import Clima from './Clima';
 import './Encabezado.css';
 import PropTypes from 'prop-types';
+import { useAuth, AuthProvider } from './AuthContext';
 
 function Encabezado({ cambiarVista }) {
   return (
@@ -26,18 +27,25 @@ function Logo() {
 }
 
 function Menu({ cambiarVista }) {
+  const { isLoggedIn, logout } = useAuth();
   return (
     <nav className="menuDiv">
       <ul>
         <li onClick={() => cambiarVista('Inicio')}>Inicio</li>
         <li onClick={() => cambiarVista('AcercaDe')}>Acerca de</li>
         <li onClick={() => cambiarVista('Productos')}>Productos</li>
-        <li onClick={() => cambiarVista('Usuarios')}>Usuarios</li>
-        <li onClick={() => cambiarVista('Carritos')}>Carritos</li>
+        {isLoggedIn ? (
+          <>
+            <li onClick={() => cambiarVista('Usuarios')}>Usuarios</li>
+            <li onClick={() => cambiarVista('Carritos')}>Carritos</li>
+          </>) :
+          (
+            <li onClick={() => cambiarVista('Login')}>Iniciar sesion</li>
+          )}
         <li onClick={() => cambiarVista('Contacto')}>Contacto</li>
         <li onClick={() => cambiarVista('Sucursales')}>Sucursales</li>
         <li onClick={() => cambiarVista('Galeria')}>Galeria</li>
-        <li onClick={() => cambiarVista('Login')}>Iniciar sesion</li>
+        <li>Cerrar sesion</li>
       </ul>
     </nav>
   );
