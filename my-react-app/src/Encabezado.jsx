@@ -28,24 +28,29 @@ function Logo() {
 
 function Menu({ cambiarVista }) {
   const { isLoggedIn, logout } = useAuth();
+  const handleLogout = () => {
+    logout();
+    cambiarVista('Inicio');
+  }; // Redirige a la vista de inicio después de cerrar sesión
   return (
     <nav className="menuDiv">
       <ul>
         <li onClick={() => cambiarVista('Inicio')}>Inicio</li>
         <li onClick={() => cambiarVista('AcercaDe')}>Acerca de</li>
         <li onClick={() => cambiarVista('Productos')}>Productos</li>
+        <li onClick={() => cambiarVista('Galeria')}>Galeria</li>
+        <li onClick={() => cambiarVista('Contacto')}>Contacto</li>
+        <li onClick={() => cambiarVista('Sucursales')}>Sucursales</li>
         {isLoggedIn ? (
           <>
             <li onClick={() => cambiarVista('Usuarios')}>Usuarios</li>
             <li onClick={() => cambiarVista('Carritos')}>Carritos</li>
-          </>) :
-          (
-            <li onClick={() => cambiarVista('Login')}>Iniciar sesion</li>
-          )}
-        <li onClick={() => cambiarVista('Contacto')}>Contacto</li>
-        <li onClick={() => cambiarVista('Sucursales')}>Sucursales</li>
-        <li onClick={() => cambiarVista('Galeria')}>Galeria</li>
-        <li>Cerrar sesion</li>
+            <li onClick={() => handleLogout()}>Cerrar sesion</li>
+          </>) : (
+          <li onClick={() => cambiarVista('Login')}>Iniciar sesion</li>
+        )}
+
+
       </ul>
     </nav>
   );

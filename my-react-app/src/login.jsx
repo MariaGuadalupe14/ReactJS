@@ -1,27 +1,33 @@
-import { useState } from 'react';
-import './login.css';
-import api from './Services/api';
+import React, { useState } from 'react';
+import api from "./Services/api";
+import './Login.css'
+import { useAuth } from './AuthContext';
 
-function Login({ cambiarVista }) {
+const Login = () => {
+  const { login } = useAuth(); //Se hereda la función login del contexto de autenticación
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    try {
-      const respuesta = await api.post('/auth/login', { username, password });
-      const token = respuesta.data?.token;
-      console.log('Token recibido:', token);
-      alert('Login exitoso');
-      if (cambiarVista) cambiarVista('Inicio');
-    } catch (error) {
-      console.error('Error al iniciar sesion:', error);
-      alert('Credenciales invalidas o error de servidor');
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  const credenciales = { username, password };
+  try {
+      const respuesta = await api.post('/auth/login/', credenciales);
+      const data = respuesta.data;
+    if (data.token) {
+      //console.log (respuesta.token)
+      login(data.token); // Guardamos el token en el contexto
+      // Redirigir al usuario aquí
+      alert('Autenticacion autorizada'); 
+    } else {
+      alert('Credenciales inválidas');
     }
-  };
-
-  return (
+  } catch (error) {
+    alert('Error', error);
+    console.error("Error:", error);
+  } 
+};
+ return (
     <div className="login-page">
       <div className="login-card">
         <div className="login-avatar">

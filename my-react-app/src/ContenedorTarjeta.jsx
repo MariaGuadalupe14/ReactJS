@@ -7,8 +7,8 @@ import Carritos from './Carritos';
 import Contacto from './Contacto';
 import Sucursales from './Sucursales';
 import Galeria from './Galeria';
-import Login from './Login';
-
+import RegistrarUsuarios from './RegistrarUsuarios.jsx';  
+import Login from './Login.jsx';
 import PropTypes from 'prop-types';
 
 function ContenedorTarjeta({vista, cambiarVista}) {
@@ -17,6 +17,7 @@ function ContenedorTarjeta({vista, cambiarVista}) {
     "AcercaDe": <AcercaDe/>,
     "Productos": <Productos/>,
     "Usuarios": <Usuarios/>,
+    "RegistrarUsuarios": <RegistrarUsuarios/>,
     "Carritos": <Carritos/>,
     "Contacto": <Contacto/>,
     "Sucursales": <Sucursales/>,
