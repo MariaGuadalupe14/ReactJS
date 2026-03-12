@@ -2,11 +2,13 @@ import { useEffect, useState } from "react";
 import api from "./Services/api";
 import "./Usuarios.css";
 import RegistrarUsuarios from "./RegistrarUsuarios";
+import { useAuth } from "./AuthContext";
 
 function Usuarios() {
   const [usuarios, setUsuarios] = useState([]);
   const [cargando, setCargando] = useState(true);
   const [usuarioSeleccionado, setUsuarioSeleccionado] = useState(null);
+  const { isLoggedIn } = useAuth();
 
   const obtenerUsuarios = async () => {
     try {
@@ -37,11 +39,13 @@ function Usuarios() {
   return (
     <>
       <div className="ContenedorUsuarios">
-        <RegistrarUsuarios
-          usuarioEditado={usuarioSeleccionado}
-          limpiarSeleccion={() => setUsuarioSeleccionado(null)}
-          onActualizacionExitosa={obtenerUsuarios}
-        />
+        {isLoggedIn && (
+          <RegistrarUsuarios
+            usuarioEditado={usuarioSeleccionado}
+            limpiarSeleccion={() => setUsuarioSeleccionado(null)}
+            onActualizacionExitosa={obtenerUsuarios}
+          />
+        )}
       </div>
 
       <div className="usuariosDiv">
@@ -58,8 +62,8 @@ function Usuarios() {
               <th>Ciudad</th>
               <th>Calle</th>
               <th>Numero</th>
-              <th>Editar</th>
-              <th>Eliminar</th>
+              {isLoggedIn && <th>Editar</th>}
+              {isLoggedIn && <th>Eliminar</th>}
             </tr>
           </thead>
           <tbody>
@@ -76,16 +80,20 @@ function Usuarios() {
                 <td>{usuario.address?.city}</td>
                 <td>{usuario.address?.street}</td>
                 <td>{usuario.address?.number}</td>
-                <td>
-                  <button type="button" onClick={() => setUsuarioSeleccionado(usuario)}>
-                    Editar
-                  </button>
-                </td>
-                <td>
-                  <button type="button" onClick={() => removeUsuario(usuario.id)}>
-                    Eliminar
-                  </button>
-                </td>
+                {isLoggedIn && (
+                  <td>
+                    <button type="button" onClick={() => setUsuarioSeleccionado(usuario)}>
+                      Editar
+                    </button>
+                  </td>
+                )}
+                {isLoggedIn && (
+                  <td>
+                    <button type="button" onClick={() => removeUsuario(usuario.id)}>
+                      Eliminar
+                    </button>
+                  </td>
+                )}
               </tr>
             ))}
           </tbody>

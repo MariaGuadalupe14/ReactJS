@@ -9,6 +9,7 @@ import PropTypes from 'prop-types';
 import { useAuth, AuthProvider } from './AuthContext';
 
 function Encabezado({ cambiarVista }) {
+  const { isLoggedIn } = useAuth();
   return (
     <div className="Encabezado">
       <Logo />
@@ -44,6 +45,7 @@ function Menu({ cambiarVista }) {
         {isLoggedIn ? (
           <>
             <li onClick={() => cambiarVista('Usuarios')}>Usuarios</li>
+            <li onClick={() => cambiarVista('Categorias')}>Categorias</li>
             <li onClick={() => cambiarVista('Carritos')}>Carritos</li>
             <li onClick={() => handleLogout()}>Cerrar sesion</li>
           </>) : (

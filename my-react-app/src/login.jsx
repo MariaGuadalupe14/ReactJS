@@ -3,8 +3,8 @@ import api from "./Services/api";
 import './Login.css'
 import { useAuth } from './AuthContext';
 
-const Login = () => {
-  const { login } = useAuth(); //Se hereda la función login del contexto de autenticación
+const Login = ({ cambiarVista }) => {
+  const { login } = useAuth(); //Se hereda la funciÃ³n login del contexto de autenticaciÃ³n
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
@@ -15,12 +15,12 @@ const handleSubmit = async (e) => {
       const respuesta = await api.post('/auth/login/', credenciales);
       const data = respuesta.data;
     if (data.token) {
-      //console.log (respuesta.token)
       login(data.token); // Guardamos el token en el contexto
-      // Redirigir al usuario aquí
+      console.log('Token:', data.token);
+      // Redirigir al usuario aqui
       alert('Autenticacion autorizada'); 
     } else {
-      alert('Credenciales inválidas');
+      alert('Credenciales invÃ¡lidas');
     }
   } catch (error) {
     alert('Error', error);
@@ -68,7 +68,12 @@ const handleSubmit = async (e) => {
         </form>
 
         <div className="login-extra-links">
-          <span className="login-link">Crear cuenta</span>
+          <span
+            className="login-link"
+            onClick={() => cambiarVista && cambiarVista('RegistrarUsuarios')}
+          >
+            Crear cuenta
+          </span>
           <span className="login-link">Recuperar cuenta</span>
         </div>
       </div>

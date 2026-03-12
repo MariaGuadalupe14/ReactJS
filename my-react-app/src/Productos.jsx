@@ -2,21 +2,25 @@ import { useEffect, useState } from "react";
 import api from "./Services/api";
 import "./Productos.css";
 import RegistrarProducto from "./registrarProducto";
+import { useAuth } from "./AuthContext";
 
 function Productos() {
   const [productoSeleccionado, setProductoSeleccionado] = useState(null);
   const [actualizarLista, setActualizarLista] = useState(0);
+  const { isLoggedIn } = useAuth();
 
   const limpiarSeleccion = () => setProductoSeleccionado(null);
   const onActualizacionExitosa = () => setActualizarLista((valor) => valor + 1);
 
   return (
     <div className="ContenedorUsuarios">
-      <RegistrarProducto
-        productoEditado={productoSeleccionado}
-        limpiarSeleccion={limpiarSeleccion}
-        onActualizacionExitosa={onActualizacionExitosa}
-      />
+      {isLoggedIn && (
+        <RegistrarProducto
+          productoEditado={productoSeleccionado}
+          limpiarSeleccion={limpiarSeleccion}
+          onActualizacionExitosa={onActualizacionExitosa}
+        />
+      )}
       <Producto onEditar={setProductoSeleccionado} actualizarLista={actualizarLista} />
     </div>
   );
@@ -25,6 +29,7 @@ function Productos() {
 function Producto({ onEditar, actualizarLista }) {
   const [productos, setProductos] = useState([]);
   const [loading, setLoading] = useState(true);
+  const { isLoggedIn } = useAuth();
 
   const obtenerProductos = async () => {
     try {
@@ -66,12 +71,16 @@ function Producto({ onEditar, actualizarLista }) {
               <h2>{producto.category}</h2>
               <p>{producto.price}</p>
               <button type="button">Anadir al carrito</button>
-              <button type="button" onClick={() => onEditar(producto)}>
-                Editar
-              </button>
-              <button type="button" onClick={() => removeProducto(producto.id)}>
-                Eliminar
-              </button>
+              {isLoggedIn && (
+                <>
+                  <button type="button" onClick={() => onEditar(producto)}>
+                    Editar
+                  </button>
+                  <button type="button" onClick={() => removeProducto(producto.id)}>
+                    Eliminar
+                  </button>
+                </>
+              )}
             </article>
           ))}
         </section>
