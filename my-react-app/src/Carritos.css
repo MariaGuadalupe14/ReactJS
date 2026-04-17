@@ -1,68 +1,177 @@
 .carritosDiv {
   padding: 20px;
-  background: #f7f9fc;
+  background: #f5f5f5;
+}
+
+.carritosDiv h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 28px;
 }
 
 .carritosGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 14px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
 }
 
 .carritoCard {
-  border: 1px solid #dbe3ee;
-  border-radius: 12px;
-  padding: 14px;
-  background: #fff;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  background: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .carritoCard h3 {
-  margin-top: 0;
-  margin-bottom: 10px;
-  color: #183153;
+  margin: 0 0 10px 0;
+  color: #333;
+  font-size: 18px;
 }
 
-.carritoProductos {
-  margin: 8px 0 0;
-  padding-left: 18px;
-  color: #334155;
+.carritoCard p {
+  margin: 6px 0;
+  color: #666;
+  font-size: 14px;
 }
 
-.carritoProductos li {
+.estado-pendiente {
+  background: #fff3cd;
+  color: #856404;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+.estado-pagado {
+  background: #d4edda;
+  color: #155724;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+.estado-cancelado {
+  background: #f8d7da;
+  color: #721c24;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+.btnVerDetalles {
+  width: 100%;
+  margin-top: 10px;
+  padding: 8px;
+  border: 1px solid #007bff;
+  background: white;
+  color: #007bff;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.btnVerDetalles:hover {
+  background: #007bff;
+  color: white;
+}
+
+.carritoDetalles {
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid #ddd;
+}
+
+.carritoDetalles p {
+  font-weight: bold;
+  color: #333;
   margin-bottom: 8px;
 }
 
+.carritoProductos {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.carritoProductos li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background: #f9f9f9;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  margin-bottom: 6px;
+  font-size: 13px;
+  gap: 10px;
+}
+
+.carritoProductos li span {
+  flex: 1;
+}
+
 .btnEliminarProducto {
-  margin-left: 10px;
   padding: 5px 10px;
   border: none;
-  border-radius: 8px;
-  background: #ef4444;
-  color: #fff;
-  font-size: 12px;
-  font-weight: 600;
+  background: #dc3545;
+  color: white;
+  border-radius: 4px;
   cursor: pointer;
+  font-size: 12px;
+  flex-shrink: 0;
 }
 
 .btnEliminarProducto:hover {
-  background: #dc2626;
+  background: #c82333;
 }
 
 .btnComprar {
+  width: 100%;
   margin-top: 10px;
-  padding: 8px 12px;
+  padding: 10px;
   border: none;
-  border-radius: 8px;
-  background: #2563eb;
-  color: #fff;
-  font-weight: 600;
+  background: #28a745;
+  color: white;
+  border-radius: 4px;
   cursor: pointer;
-  align-items: center;
-  display: block;
-  margin: 10px auto 0;
+  font-weight: 500;
+  font-size: 14px;
 }
 
 .btnComprar:hover {
-  background: #1d4ed8;
+  background: #218838;
+}
+
+.btnEliminarCarrito {
+  width: 100%;
+  margin-top: 8px;
+  padding: 10px;
+  border: none;
+  background: #ff9800;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.btnEliminarCarrito:hover {
+  background: #e68900;
+}
+
+@media (max-width: 768px) {
+  .carritosGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .carritoProductos li {
+    flex-wrap: wrap;
+  }
+
+  .btnEliminarProducto {
+    width: 100%;
+  }
 }

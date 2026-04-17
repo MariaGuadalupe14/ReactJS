@@ -4,30 +4,30 @@ import './Login.css'
 import { useAuth } from './AuthContext';
 
 const Login = ({ cambiarVista }) => {
-  const { login } = useAuth(); //Se hereda la funciÃ³n login del contexto de autenticaciÃ³n
-  const [username, setUsername] = useState('');
+  const { login } = useAuth();
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-const handleSubmit = async (e) => {
-  e.preventDefault();
-  const credenciales = { username, password };
-  try {
-      const respuesta = await api.post('/auth/login/', credenciales);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const credenciales = { email, password };
+    try {
+      const respuesta = await api.post('/login', credenciales);
       const data = respuesta.data;
-    if (data.token) {
-      login(data.token); // Guardamos el token en el contexto
-      console.log('Token:', data.token);
-      // Redirigir al usuario aqui
-      alert('Autenticacion autorizada'); 
-    } else {
-      alert('Credenciales invÃ¡lidas');
+      if (data.token) {
+        login(data.token);
+        console.log('Token:', data.token);
+        alert('Autenticación autorizada');
+      } else {
+        alert('Credenciales inválidas');
+      }
+    } catch (error) {
+      alert('Error');
+      console.error("Error:", error);
     }
-  } catch (error) {
-    alert('Error', error);
-    console.error("Error:", error);
-  } 
-};
- return (
+  };
+
+  return (
     <div className="login-page">
       <div className="login-card">
         <div className="login-avatar">
@@ -39,13 +39,13 @@ const handleSubmit = async (e) => {
         <h1 className="login-title">Iniciar sesion</h1>
 
         <form className="login-form" onSubmit={handleSubmit}>
-          <label htmlFor="username">Nombre del usuario:</label>
+          <label htmlFor="email">Correo electrónico:</label>
           <input
-            id="username"
-            type="text"
-            name="username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            id="email"
+            type="email"
+            name="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
 
           <label htmlFor="password">Password:</label>
