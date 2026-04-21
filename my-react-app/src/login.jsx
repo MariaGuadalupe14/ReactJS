@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import api from "./Services/api";
-import './Login.css'
+import api from './Services/api';
+import './Login.css';
 import { useAuth } from './AuthContext';
 
 const Login = ({ cambiarVista }) => {
@@ -11,19 +11,21 @@ const Login = ({ cambiarVista }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const credenciales = { email, password };
+
     try {
       const respuesta = await api.post('/login', credenciales);
       const data = respuesta.data;
-      if (data.token) {
-        login(data.token);
-        console.log('Token:', data.token);
-        alert('Autenticación autorizada');
+
+      if (data.token && data.usuario) {
+        login(data.token, data.usuario);
+        alert(data.usuario.rol === 'admin' ? 'Acceso de administrador autorizado' : 'Sesion iniciada como cliente');
+        cambiarVista && cambiarVista('Inicio');
       } else {
-        alert('Credenciales inválidas');
+        alert('Credenciales invalidas');
       }
     } catch (error) {
-      alert('Error');
-      console.error("Error:", error);
+      alert('Error al iniciar sesion');
+      console.error('Error:', error);
     }
   };
 
@@ -39,7 +41,7 @@ const Login = ({ cambiarVista }) => {
         <h1 className="login-title">Iniciar sesion</h1>
 
         <form className="login-form" onSubmit={handleSubmit}>
-          <label htmlFor="email">Correo electrónico:</label>
+          <label htmlFor="email">Correo electronico:</label>
           <input
             id="email"
             type="email"
@@ -79,6 +81,6 @@ const Login = ({ cambiarVista }) => {
       </div>
     </div>
   );
-}
+};
 
 export default Login;

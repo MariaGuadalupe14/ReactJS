@@ -1,22 +1,51 @@
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useMemo, useState } from 'react';
 
 const AuthContext = createContext();
 
-export const AuthProvider = ({ children }) => {
-  const [isLoggedIn, setIsLoggedIn] = useState(!!localStorage.getItem('token'));
+function getStoredUser() {
+  const storedUser = localStorage.getItem('usuario');
 
-  const login = (token) => {
-    localStorage.setItem('token', token); // Guardamos el token
-    setIsLoggedIn(true);
+  if (!storedUser) {
+    return null;
+  }
+
+  try {
+    return JSON.parse(storedUser);
+  } catch (error) {
+    localStorage.removeItem('usuario');
+    return null;
+  }
+}
+
+export const AuthProvider = ({ children }) => {
+  const [token, setToken] = useState(localStorage.getItem('token') || '');
+  const [usuario, setUsuario] = useState(getStoredUser);
+
+  const login = (newToken, user) => {
+    localStorage.setItem('token', newToken);
+    localStorage.setItem('usuario', JSON.stringify(user));
+    setToken(newToken);
+    setUsuario(user);
   };
 
   const logout = () => {
-    localStorage.removeItem('token'); // Limpiamos al salir
-    setIsLoggedIn(false);
+    localStorage.removeItem('token');
+    localStorage.removeItem('usuario');
+    setToken('');
+    setUsuario(null);
   };
 
+  const value = useMemo(() => ({
+    token,
+    usuario,
+    isLoggedIn: Boolean(token),
+    isAdmin: usuario?.rol === 'admin',
+    login,
+    logout
+  }), [token, usuario]);
+
   return (
-    <AuthContext.Provider value={{ isLoggedIn, login, logout }}>
+    <AuthContext.Provider value={value}>
       {children}
     </AuthContext.Provider>
   );

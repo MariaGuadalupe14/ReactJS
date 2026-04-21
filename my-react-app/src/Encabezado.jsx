@@ -6,10 +6,9 @@ import whatsappImg from './assets/redes/whatsapp.png';
 import Clima from './Clima';
 import './Encabezado.css';
 import PropTypes from 'prop-types';
-import { useAuth, AuthProvider } from './AuthContext';
+import { useAuth } from './AuthContext';
 
 function Encabezado({ cambiarVista }) {
-  const { isLoggedIn } = useAuth();
   return (
     <div className="Encabezado">
       <Logo />
@@ -28,11 +27,13 @@ function Logo() {
 }
 
 function Menu({ cambiarVista }) {
-  const { isLoggedIn, logout } = useAuth();
+  const { isLoggedIn, isAdmin, usuario, logout } = useAuth();
+
   const handleLogout = () => {
     logout();
     cambiarVista('Inicio');
-  }; // Redirige a la vista de inicio después de cerrar sesión
+  };
+
   return (
     <nav className="menuDiv">
       <ul>
@@ -42,17 +43,17 @@ function Menu({ cambiarVista }) {
         <li onClick={() => cambiarVista('Galeria')}>Galeria</li>
         <li onClick={() => cambiarVista('Contacto')}>Contacto</li>
         <li onClick={() => cambiarVista('Sucursales')}>Sucursales</li>
+        {isAdmin && <li onClick={() => cambiarVista('Usuarios')}>Usuarios</li>}
+        {isAdmin && <li onClick={() => cambiarVista('Categorias')}>Categorias</li>}
+        {isAdmin && <li onClick={() => cambiarVista('Carritos')}>Carritos</li>}
         {isLoggedIn ? (
           <>
-            <li onClick={() => cambiarVista('Usuarios')}>Usuarios</li>
-            <li onClick={() => cambiarVista('Categorias')}>Categorias</li>
-            <li onClick={() => cambiarVista('Carritos')}>Carritos</li>
-            <li onClick={() => handleLogout()}>Cerrar sesion</li>
-          </>) : (
+            <li>{usuario?.rol === 'admin' ? 'Admin' : 'Cliente'}</li>
+            <li onClick={handleLogout}>Cerrar sesion</li>
+          </>
+        ) : (
           <li onClick={() => cambiarVista('Login')}>Iniciar sesion</li>
         )}
-
-
       </ul>
     </nav>
   );
